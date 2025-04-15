@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inngest-demo
+  labels:
+    app: inngest-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inngest-demo
+  template:
+    metadata:
+      labels:
+        app: inngest-demo
+    spec:
+      containers:
+        - name: inngest-demo
+          image: registry.digitalocean.com/kube-app-registry/inngest-demo:latest
+          ports:
+            - containerPort: 3000
+          command: ["pnpm", "dev", "--hostname", "0.0.0.0"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: inngest-demo-service
+spec:
+  selector:
+    app: inngest-demo
+  ports:
+    - protocol: TCP
+      port: 4000       # External port
+      targetPort: 3000 # Container port
+  type: NodePort
