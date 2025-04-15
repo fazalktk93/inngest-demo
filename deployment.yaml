@@ -34,4 +34,4 @@ spec:
     - protocol: TCP
       port: 4000       # External port
       targetPort: 3000 # Container port
-  type: NodePort
+  type: LoadBalancer
