@@ -20,6 +20,8 @@ spec:
           ports:
             - containerPort: 3000
           command: ["pnpm", "dev", "--hostname", "0.0.0.0"]
+      imagePullSecrets:
+        - name: do-registry-secret
 ---
 apiVersion: v1
 kind: Service
