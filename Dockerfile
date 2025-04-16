@@ -34,4 +34,4 @@ RUN pnpm install
 EXPOSE 3000
 
 # Start dev server
-CMD ["pnpm", "dev", "--", "--hostname", "0.0.0.0"]
+CMD ["pnpm", "start"]

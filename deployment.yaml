@@ -19,7 +19,7 @@ spec:
           image: registry.digitalocean.com/kube-app-registry/inngest-demo:latest
           ports:
             - containerPort: 3000
-          command: ["pnpm", "dev", "--hostname", "0.0.0.0"]
+          command: ["pnpm", "start"]
       imagePullSecrets:
         - name: do-registry-secret
 ---
